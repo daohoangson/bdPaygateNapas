@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<addon addon_id="bdPaygateNapas" title="[bd] Paygate: NAPAS" version_string="1.0.0" version_id="1000001" url="" install_callback_class="bdPaygateNapas_Installer" install_callback_method="install" uninstall_callback_class="bdPaygateNapas_Installer" uninstall_callback_method="uninstall">
+  <admin_navigation/>
+  <admin_permissions/>
+  <admin_style_properties/>
+  <admin_templates/>
+  <admin_template_modifications/>
+  <code_events/>
+  <code_event_listeners>
+    <listener event_id="file_health_check" execute_order="10" callback_class="bdPaygateNapas_Listener" callback_method="file_health_check" active="1" hint="" description=""/>
+    <listener event_id="load_class_model" execute_order="10" callback_class="bdPaygateNapas_Listener" callback_method="load_class_bdPaygate_Model_Processor" active="1" hint="bdPaygate_Model_Processor" description="bdPaygate_Model_Processor"/>
+  </code_event_listeners>
+  <cron/>
+  <email_templates/>
+  <email_template_modifications/>
+  <optiongroups>
+    <group group_id="bdPaygateNapas" display_order="9999" debug_only="0"/>
+    <option option_id="bdPaygateNapas_clientChannel" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value>6014</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="bdPaygateNapas" display_order="20"/>
+    </option>
+    <option option_id="bdPaygateNapas_clientId" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value>APITEST</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="bdPaygateNapas" display_order="20"/>
+    </option>
+    <option option_id="bdPaygateNapas_clientSecret" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value>TT3F6AM5UQZXJEJXAWJ8CHVC9ZJ02A51</default_value>
+      <edit_format_params>type=password</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="bdPaygateNapas" display_order="20"/>
+    </option>
+    <option option_id="bdPaygateNapas_isProduction" edit_format="onoff" data_type="boolean" can_backup="1">
+      <default_value></default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="bdPaygateNapas" display_order="10"/>
+    </option>
+    <option option_id="bdPaygateNapas_password" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value>fPJFVp5qnCWeFmtd</default_value>
+      <edit_format_params>type=password</edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="bdPaygateNapas" display_order="31"/>
+    </option>
+    <option option_id="bdPaygateNapas_username" edit_format="textbox" data_type="string" can_backup="1">
+      <default_value>apitest</default_value>
+      <edit_format_params></edit_format_params>
+      <sub_options></sub_options>
+      <relation group_id="bdPaygateNapas" display_order="30"/>
+    </option>
+  </optiongroups>
+  <permissions>
+    <permission_groups/>
+    <permissions/>
+    <interface_groups/>
+  </permissions>
+  <phrases>
+    <phrase title="bdpaygatenapas_call_to_action" version_id="1000001" version_string="1.0.0"><![CDATA[Pay with NAPAS]]></phrase>
+    <phrase title="bdpaygatenapas_card_scheme_atm_card" version_id="1000001" version_string="1.0.0"><![CDATA[ATM card]]></phrase>
+    <phrase title="bdpaygatenapas_card_scheme_credit_card" version_id="1000001" version_string="1.0.0"><![CDATA[Credit card]]></phrase>
+    <phrase title="bdpaygatenapas_payment_status_not_accepted" version_id="1000001" version_string="1.0.0"><![CDATA[Sorry, your payment cannot be processed at this time, please try again later.<br />If this error has happened before, contact our staff for immediate assistance. Thank you.]]></phrase>
+    <phrase title="bdpaygatenapas_please_wait_for_payment_page" version_id="1000001" version_string="1.0.0"><![CDATA[Please wait for NAPAS payment page...]]></phrase>
+    <phrase title="option_bdPaygateNapas_clientChannel" version_id="1000001" version_string="1.0.0"><![CDATA[Client Channel]]></phrase>
+    <phrase title="option_bdPaygateNapas_clientChannel_explain" version_id="1000001" version_string="1.0.0"><![CDATA[]]></phrase>
+    <phrase title="option_bdPaygateNapas_clientId" version_id="1000001" version_string="1.0.0"><![CDATA[Client ID]]></phrase>
+    <phrase title="option_bdPaygateNapas_clientId_explain" version_id="1000001" version_string="1.0.0"><![CDATA[]]></phrase>
+    <phrase title="option_bdPaygateNapas_clientSecret" version_id="1000001" version_string="1.0.0"><![CDATA[Client Secret]]></phrase>
+    <phrase title="option_bdPaygateNapas_clientSecret_explain" version_id="1000001" version_string="1.0.0"><![CDATA[]]></phrase>
+    <phrase title="option_bdPaygateNapas_isProduction" version_id="1000001" version_string="1.0.0"><![CDATA[Use production NAPAS server]]></phrase>
+    <phrase title="option_bdPaygateNapas_isProduction_explain" version_id="1000001" version_string="1.0.0"><![CDATA[By default, the paygate will connect to the staging server.]]></phrase>
+    <phrase title="option_bdPaygateNapas_password" version_id="1000001" version_string="1.0.0"><![CDATA[Password]]></phrase>
+    <phrase title="option_bdPaygateNapas_password_explain" version_id="1000001" version_string="1.0.0"><![CDATA[]]></phrase>
+    <phrase title="option_bdPaygateNapas_username" version_id="1000001" version_string="1.0.0"><![CDATA[Username]]></phrase>
+    <phrase title="option_bdPaygateNapas_username_explain" version_id="1000001" version_string="1.0.0"><![CDATA[]]></phrase>
+    <phrase title="option_group_bdPaygateNapas" version_id="1000001" version_string="1.0.0"><![CDATA[[bd] Paygate: NAPAS]]></phrase>
+    <phrase title="option_group_bdPaygateNapas_description" version_id="1000001" version_string="1.0.0"><![CDATA[NAPAS payment gateway for XenForo 1.]]></phrase>
+  </phrases>
+  <route_prefixes>
+    <route_type type="public">
+      <prefix original_prefix="napas" class="bdPaygateNapas_Route_Prefix_Napas" build_link="data_only"/>
+    </route_type>
+  </route_prefixes>
+  <style_properties/>
+  <templates>
+    <template title="bdpaygatenapas_form" version_id="1000001" version_string="1.0.0"><![CDATA[<form action="{xen:link napas/form}" method="POST" class="bdPaygateNapas_Processor_Napas xenForm">
+		<select name="card_scheme" class="textCtrl">
+		<xen:foreach loop="$cardSchemes" key="$value" value="$label">
+			<option value="{$value}">{$label}</option>
+		</xen:foreach>
+	</select>
+
+	<input type="submit" value="{xen:phrase bdpaygatenapas_call_to_action}" class="button" />
+	<input type="hidden" name="_xfToken" value="{$visitor.csrf_token_page}" />
+	<input type="hidden" name="encrypted" value="{$encrypted}" />
+</form>]]></template>
+    <template title="bdpaygatenapas_payment_page" version_id="1000001" version_string="1.0.0"><![CDATA[<xen:title>{xen:phrase bdpaygatenapas_please_wait_for_payment_page}</xen:title>
+
+<form id="merchant-form" action="{xen:link canonical:napas/callback}" method="POST">
+	<div id="napas-widget-container"></div>
+	<script type="text/javascript"
+			id="napas-widget-script"
+			src="{$dataKey.apiRoot}/restjs/resources/js/napas.paymentpage.min.js"
+			merchantId="{$dataKey.clientId}"
+			clientIP="{$dataKey.clientIP}"
+			deviceId="{$dataKey.deviceId}"
+			environment="{$dataKey.environment}"
+			cardScheme="{$dataKey.cardScheme}"
+			enable3DSecure="{xen:if $dataKey.enable3DSecure, 'true', 'false'}"
+			orderId="{$dataKey.order.id}"
+			dataKey="{$dataKey.dataKey}"
+			napasKey="{$dataKey.napasKey}"
+			apiOperation="PAY"
+			orderAmount="{$dataKey.order.amount}"
+			orderCurrency="{$dataKey.order.currency}"
+			orderReference="{$dataKey.order.reference}"
+			channel="{$dataKey.clientChannel}"
+			sourceOfFundsType="CARD"></script>
+</form>]]></template>
+  </templates>
+  <public_template_modifications/>
+  <bb_code_media_sites/>
+  <bb_codes/>
+</addon>
