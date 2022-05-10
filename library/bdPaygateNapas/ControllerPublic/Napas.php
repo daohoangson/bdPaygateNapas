@@ -93,4 +93,13 @@ class bdPaygateNapas_ControllerPublic_Napas extends XenForo_ControllerPublic_Abs
 
         return $this->responseRedirect(XenForo_ControllerResponse_Redirect::RESOURCE_UPDATED, $returnUrl);
     }
+
+    protected function _checkCsrf($action)
+    {
+        if (strtolower($action) === 'callback') {
+            return;
+        }
+
+        parent::_checkCsrf($action);
+    }
 }
