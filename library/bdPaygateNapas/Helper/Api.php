@@ -28,7 +28,7 @@ class bdPaygateNapas_Helper_Api
         ]);
 
         $response = $client->request('POST');
-        $responseStatus = $response->getStatus();
+        $responseStatus = self::extractResponseStatus($client, $response);
 
         if ($response->getStatus() !== 200) {
             throw new XenForo_Exception(sprintf('%s: unexpected status %d', __METHOD__, $responseStatus));
@@ -76,7 +76,7 @@ class bdPaygateNapas_Helper_Api
         $client->setRawData(json_encode($reqData));
 
         $response = $client->request('POST');
-        $responseStatus = $response->getStatus();
+        $responseStatus = self::extractResponseStatus($client, $response);
 
         if ($response->getStatus() !== 200) {
             throw new XenForo_Exception(sprintf('%s: unexpected status %d', __METHOD__, $responseStatus));
@@ -105,6 +105,22 @@ class bdPaygateNapas_Helper_Api
     {
         $hash = hash('sha256', $data . self::_clientSecret());
         return strtoupper($hash);
+    }
+
+    /**
+     * @param Zend_Http_Client $client
+     * @param Zend_Http_Response $response
+     * @return mixed
+     */
+    public static function extractResponseStatus($client, $response)
+    {
+        $responseStatus = $response->getStatus();
+        XenForo_Helper_File::log('napas', $client->getLastRequest());
+        XenForo_Helper_File::log('napas', $responseStatus);
+        XenForo_Helper_File::log('napas', $client->getLastResponse()->getRawBody());
+        XenForo_Helper_File::log('napas', '---');
+
+        return $responseStatus;
     }
 
     private static function _apiRoot()
